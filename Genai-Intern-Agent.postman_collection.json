@@ -1,0 +1,105 @@
+{
+	"info": {
+		"_postman_id": "79471f9b-15f5-4b85-9fdf-9366dd8328ce",
+		"name": "Genai-Intern-Agent",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38790363",
+		"_collection_link": "https://ps-api-7154.postman.co/workspace/My-Workspace~9ff8cc02-3bc8-4856-8c71-2061a525a245/collection/38790363-79471f9b-15f5-4b85-9fdf-9366dd8328ce?action=share&source=collection_link&creator=38790363"
+	},
+	"item": [
+		{
+			"name": "uvicorn main:app --host 0.0.0.0 --port 8000 --reload",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Blog analyze",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"blog_posts\": [\r\n    {\r\n      \"title\": \"The Future of AI in Everyday Life\",\r\n      \"content\": \"Artificial Intelligence (AI) is no longer a futuristic concept; it is already part of our daily lives. From voice assistants like Alexa and Siri to personalized recommendations on Netflix and Amazon, AI is shaping how we interact with technology. In the coming years, AI will move beyond convenience and entertainment, becoming deeply integrated into healthcare, education, law, and even creative industries. For instance, AI-powered diagnostic tools are helping doctors detect diseases earlier, while AI tutors are personalizing learning experiences for students. However, this rapid adoption also raises concerns around ethics, privacy, and job displacement. Striking a balance between innovation and responsibility will be the key challenge for the future of AI.\",\r\n      \"tags\": [\"AI\", \"technology\", \"future\", \"innovation\"],\r\n      \"author\": \"Nagaraj Bhandare\"\r\n    },\r\n    {\r\n      \"title\": \"Sustainable Energy: Powering a Greener Tomorrow\",\r\n      \"content\": \"As the world faces the growing threat of climate change, the shift toward sustainable energy sources has never been more urgent. Solar, wind, and hydroelectric power are no longer niche alternatives but vital components of the global energy mix. Countries are investing heavily in renewable infrastructure to reduce dependence on fossil fuels and cut greenhouse gas emissions. Beyond government action, private companies and individuals are also playing their part—installing solar panels, adopting electric vehicles, and investing in green technologies. While challenges such as storage capacity and grid modernization remain, innovations in battery technology and smart grids are paving the way for a sustainable energy future.\",\r\n      \"tags\": [\"sustainability\", \"renewable energy\", \"climate change\", \"innovation\"],\r\n      \"author\": \"Nagaraj Bhandare\"\r\n    }\r\n  ],\r\n  \"analysis_depth\": \"standard\",\r\n  \"include_keywords\": true,\r\n  \"include_sentiment\": true,\r\n  \"include_topics\": true\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/api/analyze-blogs",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"analyze-blogs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:8000/health",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KeywordSuggestion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"current_draft\": \"Artificial Intelligence (AI) is transforming the software development landscape. Developers are increasingly using AI-powered tools for code completion, bug detection, and even automated testing. However, the real shift comes when AI integrates seamlessly into the development lifecycle, enabling smarter DevOps pipelines, predictive analytics, and adaptive learning systems that improve with use.\",\r\n  \"cursor_context\": \"Developers are increasingly using AI-powered tools for code completion, bug detection, and even automated testing. However, the real shift comes when...\",\r\n  \"user_profile\": {\r\n    \"user_id\": \"user123\",\r\n    \"preferred_topics\": [\"technology\", \"AI\"],\r\n    \"reading_level\": \"intermediate\",\r\n    \"writing_style\": \"formal\",\r\n    \"target_audience\": \"developers\",\r\n    \"expertise_areas\": [\"machine learning\", \"web development\"]\r\n  },\r\n  \"max_suggestions\": 10,\r\n  \"context_window\": 100\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/api/recommend-keywords",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"recommend-keywords"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
